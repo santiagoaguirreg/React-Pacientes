@@ -22,7 +22,7 @@ const Formulario = () => {
               type="text"
               id='mascota'
               placeholder='Nombre de la mascota'
-              className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
+              className='border-2 w-full p-2 mt-10 placeholder-gray-400 rounded-md'
             />
 
 
