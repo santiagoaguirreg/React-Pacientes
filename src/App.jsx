@@ -1,3 +1,4 @@
+import { useState } from "react"
 import Header from "./componentes/Header"
 import Formulario from "./componentes/Formulario"
 import ListadoPacientes from "./componentes/ListadoPacientes"
