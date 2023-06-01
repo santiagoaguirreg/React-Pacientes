@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Error from "./Error";
 
-const Formulario = ({pacientes, setPacientes, paciente}) => {
+const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
 
   const [nombre, setNombre ] = useState('');
   const [propietario, setPropietario ] = useState('');
@@ -11,6 +11,7 @@ const Formulario = ({pacientes, setPacientes, paciente}) => {
 
   const [error, setError ] = useState(false);
   const [validpaciente, setValidpaciente ] = useState(true);
+  const [edicionpaciente, setEdicionpaciente ] = useState(false);
 
   useEffect(() => {
    if(Object.keys(paciente).length > 0) {
@@ -20,7 +21,8 @@ const Formulario = ({pacientes, setPacientes, paciente}) => {
     setAlta(paciente.alta)
     setSintomas(paciente.sintomas)
 
-    setValidpaciente(false)
+    setValidpaciente(false);
+    setEdicionpaciente(true);
    } 
 
   }, [paciente])
@@ -49,16 +51,29 @@ const Formulario = ({pacientes, setPacientes, paciente}) => {
         email, 
         alta,
         sintomas,
-        id: generarId()
       }
 
+      if(edicionpaciente == false) {
+        objetoPaciente.id = generarId();
       setPacientes([...pacientes, objetoPaciente])
+      } else {
+        objetoPaciente.id = paciente.id;
+
+        const pacientesactualizado = pacientes.map( (pacienteState) => pacienteState.id === paciente.id ? objetoPaciente : pacienteState )
+
+        setPacientes(pacientesactualizado)
+        setPaciente({})
+        setValidpaciente(true)
+        setEdicionpaciente(false);
+      }
 
       setNombre('')
       setPropietario('')
       setEmail('')
       setAlta('')
       setSintomas('')
+
+    
   }
 
   return (
