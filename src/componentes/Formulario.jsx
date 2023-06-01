@@ -55,7 +55,7 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
 
       if(edicionpaciente == false) {
         objetoPaciente.id = generarId();
-      setPacientes([...pacientes, objetoPaciente])
+        setPacientes([...pacientes, objetoPaciente])
       } else {
         objetoPaciente.id = paciente.id;
 
