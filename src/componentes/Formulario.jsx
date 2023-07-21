@@ -53,13 +53,16 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
         sintomas,
       }
 
+
       if(edicionpaciente == false) {
         objetoPaciente.id = generarId();
         setPacientes([...pacientes, objetoPaciente])
       } else {
         objetoPaciente.id = paciente.id;
 
-        const pacientesactualizado = pacientes.map( (pacienteState) => pacienteState.id === paciente.id ? objetoPaciente : pacienteState )
+        const pacientesactualizado = pacientes.map( 
+          (pacienteState) => pacienteState.id === paciente.id ? objetoPaciente : pacienteState 
+          )
 
         setPacientes(pacientesactualizado)
         setPaciente({})
