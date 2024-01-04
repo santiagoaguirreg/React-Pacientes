@@ -24,11 +24,11 @@ function App() {
   }, [pacientes]);
 
 
-  const eliminarPaciente = (id) => {
-    const pacientesactualizado = pacientes.filter( (pacienteState) => pacienteState.id !== id )
+  // const eliminarPaciente = (id) => {
+  //   const pacientesactualizado = pacientes.filter( (pacienteState) => pacienteState.id !== id )
 
-    setPacientes(pacientesactualizado)
-   }
+  //   setPacientes(pacientesactualizado)
+  //  }
 
 
    
@@ -47,10 +47,10 @@ function App() {
     setPaciente={setPaciente}
     />
     <ListadoPacientes 
-    
+
     pacientes={pacientes}
+    setPacientes={setPacientes}
     setPaciente={setPaciente}
-    eliminarPaciente={eliminarPaciente}
     />
     </div>
 

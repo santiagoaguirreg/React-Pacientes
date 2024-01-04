@@ -1,6 +1,6 @@
 
 
-const Pacientes = ({paciente, setPaciente, eliminarPaciente}) => {
+const Pacientes = ({paciente, setPaciente, setPacientes, pacientes}) => {
 
 
    const{nombre, propietario, email, alta, sintomas, id } = paciente;
@@ -8,8 +8,10 @@ const Pacientes = ({paciente, setPaciente, eliminarPaciente}) => {
    const handleEliminar = () => {
     const respuesta = confirm("Deseas eliminar este paciente?");
 
-    if(respuesta) {
-      eliminarPaciente(id) 
+    if(respuesta) { 
+        const pacientesactualizado = pacientes.filter( (pacienteState) => pacienteState.id !== id )
+        setPacientes(pacientesactualizado)
+       
     }
   
    }
